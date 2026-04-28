@@ -1,4 +1,3 @@
-guzmanclo.css
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +10,11 @@ guzmanclo.css
     <meta name="description" content="A brief description of my page for search engines.">
     <meta name="author" content="Your Name">
 
+    <!-- REQUIRED: This script makes the 3D <model-viewer> tag work -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
     <!-- Link your CSS file here. Assuming your CSS is in a 'styles' folder or next to index.html -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="guzmanclo.css">
 
     <!-- Optional: Link external fonts (e.g., Google Fonts) -->
     <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> -->
@@ -39,14 +41,41 @@ guzmanclo.css
         </section>
 
         <section id="about">
-            <h2>...</h2>
+            <h2>About</h2>
             <p>This is my work.</p>
         </section>
 
+        <!-- Image input can go alongside your project descriptions here -->
         <section id="projects">
             <h2>My Projects</h2>
             <p>Showcase some of your work here.</p>
+            <!-- Example of an image input -->
+            <img src="path/to/your-image.jpg" alt="A project image" style="max-width: 100%; height: auto;">
         </section>
+
+        <!-- Moved the 3D model inside the main content area -->
+        <section class="model-container">
+            <h2>3D Artifact Study</h2>
+
+            <!-- Added width and height so the model is visible -->
+            <model-viewer
+                src="path/to/your-model.glb"
+                poster="path/to/poster-image.png"
+                alt="A 3D model of a creative artifact"
+                shadow-intensity="1"
+                camera-controls
+                auto-rotate
+                ar
+                style="width: 100%; height: 500px; background-color: #f4f4f4; border-radius: 8px;">
+            </model-viewer>
+        </section>
+
+        <!-- Added the missing contact section so the navbar link works -->
+        <section id="contact">
+            <h2>Reach out</h2>
+            <p>Feel free to contact me here.</p>
+        </section>
+
     </main>
 
     <footer>
