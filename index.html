@@ -81,10 +81,10 @@
 
             <!-- Area for an .obj interactive file -->
             <section id="obj-interactive" class="split-column">
-                <h2>OBJ Interactive Area</h2>
-                <p>Your interactive .obj file rendering will go here.</p>
-                <div class="obj-placeholder">
-                    <p>Upload/embed your .obj 3D interactive viewer here.</p>
+                <h2>Alligator Figure (.OBJ)</h2>
+                <p>Interact with the 3D alligator mapping below.</p>
+                <div id="obj-interactive-viewer" class="obj-placeholder" style="border:none; padding:0; overflow:hidden; background-color: transparent;">
+                    <!-- ThreeJS Canvas will render precisely here from script.js -->
                 </div>
             </section>
         </div>
@@ -102,6 +102,6 @@
     </footer>
 
     <!-- Link your JavaScript file here, at the end of the body so it loads after the HTML -->
-    <!-- <script src="script.js"></script> -->
+    <script type="module" src="script.js"></script>
 </body>
 </html>
