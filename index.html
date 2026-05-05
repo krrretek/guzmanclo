@@ -1,103 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Metadata about the document -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
-
-    <!-- SEO & Sharing Metadata -->
-    <meta name="description" content="A brief description of my page for search engines.">
-    <meta name="author" content="Your Name">
-
-    <!-- REQUIRED: This script makes the 3D <model-viewer> tag work -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
-
-    <!-- Link your CSS file here. Assuming your CSS is in a 'styles' folder or next to index.html -->
-    <link rel="stylesheet" href="guzmanclo.css">
-
-    <!-- Optional: Link external fonts (e.g., Google Fonts) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <!-- Semantic structure starts here -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Reach out</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <!-- The main content of your webpage goes here -->
-        <section id="home">
-            <h1>Welcome to my GitHub Page</h1>
-            <p>This is where it begins.</p>
-        </section>
-
-        <section id="about">
-            <h2>About</h2>
-            <p>This is my work.</p>
-        </section>
-
-        <!-- Moved the 3D model inside the main content area -->
-        <section class="model-container">
-            <h2>3D Artifact Study</h2>
-
-            <!-- Added width and height so the model is visible -->
-            <model-viewer
-                src="gallerywall.glb"
-                poster="path/to/poster-image.png"
-                alt="A 3D model of a creative artifact"
-                shadow-intensity="1"
-                camera-controls
-                auto-rotate
-                ar
-                style="width: 100%; height: 500px; background-color: #f4f4f4; border-radius: 8px;">
-            </model-viewer>
-        </section>
-
-        <!-- Side-by-side layout: Projects (left) and OBJ (right) -->
-        <div class="split-layout">
-            <!-- Image input can go alongside your project descriptions here -->
-            <section id="projects" class="split-column">
-                <h2>My Projects</h2>
-                <p>Showcase some of your work here.</p>
-                <!-- Example of an image input -->
-                <img src="firstproject.png" alt="A project image" class="project-img">
-                <!-- Added two additional still image files -->
-                <img src="secondproject.png" alt="Second still image" class="project-img">
-                <img src="thirdproject.png" alt="Third still image" class="project-img">
-            </section>
-
-            <!-- Area for an .obj interactive file -->
-            <section id="obj-interactive" class="split-column">
-                <h2>OBJ Interactive Area</h2>
-                <p>Your interactive .obj file rendering will go here.</p>
-                <div class="obj-placeholder">
-                    <p>Upload/embed your .obj 3D interactive viewer here.</p>
-                </div>
-            </section>
-        </div>
-
-        <!-- Added the missing contact section so the navbar link works -->
-        <section id="contact">
-            <h2>Reach out</h2>
-            <p>Feel free to contact me here.</p>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2024 A Name. All rights reserved.</p>
-    </footer>
-
-    <!-- Link your JavaScript file here, at the end of the body so it loads after the HTML -->
-    <!-- <script src="script.js"></script> -->
-</body>
-</html>
+/* Scrollable metallic red and rose gold background */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    /* Metallic red to rose gold gradient */
+    background: linear-gradient(135deg, #a40000 0%, #b76e79 100%);
+    background-attachment: scroll; /* Ensures it is scrollable */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+/* Header in crisp bold white font */
+header {
+    padding: 20px 0;
+    text-align: center;
+}
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+header nav ul li a {
+    color: #ffffff;
+    font-weight: 700; /* Bold */
+    font-size: 1.25rem;
+    text-decoration: none;
+    /* Text shadow to ensure crispness against the vibrant background */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.5px;
+}
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+/* Enhancing heading fonts for crispness */
+h1, h2 {
+    text-align: center;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+p {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+/* Project images */
+.project-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    margin: 15px auto;
+    display: block;
+}
+/* Interactive OBJ area placeholder */
+.obj-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px dashed rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+/* Split Layout for Side-by-Side Content */
+.split-layout {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrap for smaller screens */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.split-column {
+    flex: 1; /* Causes elements to split space equally */
+    min-width: 300px;
+    margin: 0 !important; /* Resets default section margins */
+    padding: 20px 0;
+}
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
