@@ -4,7 +4,7 @@
     <!-- Metadata about the document -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
+    <title>krrretek - portfolio</title>
 
     <!-- SEO & Sharing Metadata -->
     <meta name="description" content="A brief description of my page for search engines.">
@@ -36,7 +36,7 @@
     <main>
         <!-- The main content of your webpage goes here -->
         <section id="home">
-            <h1>Welcome to my GitHub Page</h1>
+            <h1>Digital Portfolio - Krrretek</h1>
             <p>This is where it begins.</p>
         </section>
 
@@ -49,15 +49,19 @@
         <section class="model-container">
             <h2>3D Artifact Study</h2>
 
-            <!-- Added width and height so the model is visible -->
+            <!-- Configured for maximum interactivity with auto-rotate, camera-controls, animations, etc -->
             <model-viewer
                 src="gallerywall.glb"
                 poster="path/to/poster-image.png"
                 alt="A 3D model of a creative artifact"
                 shadow-intensity="1"
                 camera-controls
+                touch-action="pan-y"
                 auto-rotate
                 ar
+                autoplay
+                interaction-prompt="auto"
+                interaction-prompt-style="basic"
                 style="width: 100%; height: 500px; background-color: #f4f4f4; border-radius: 8px;">
             </model-viewer>
         </section>
