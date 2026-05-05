@@ -1,19 +1,26 @@
-/* Scrollable metallic red and rose gold background */
+/* Fluid, Wide, Editorial Scrollable Template Styles */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
     /* Lighter blood orange fading noticeably to rose gold */
     background: linear-gradient(135deg, #FF5E0E 0%, #E34234 40%, #B76E79 100%);
-    background-attachment: scroll; /* Ensures it is scrollable */
+    background-attachment: scroll; /* Ensures it is wildly scrollable */
     color: #ffffff;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden; /* Prevents horizontal scroll on wide elements */
 }
 
 /* Header in crisp bold white font */
 header {
-    padding: 20px 0;
+    padding: 4vw 0;
     text-align: center;
+    width: 100%;
 }
 
 header nav ul {
@@ -22,106 +29,110 @@ header nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
 }
 
 header nav ul li a {
     color: #ffffff;
-    font-weight: 700; /* Bold */
+    font-weight: 700;
     font-size: 1.25rem;
     text-decoration: none;
-    /* Text shadow to ensure crispness against the vibrant background */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 header nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Elegant typography for main title */
-h1 {
+/* Elegant fluid typography */
+h1, h2 {
     text-align: center;
     font-weight: 700;
     color: #ffffff;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
     font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
-/* Enhancing secondary headings for larger display */
+/* Massive Editorial Headings */
+h1 {
+    font-size: 8vw; /* Fluid size relative to viewport width */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    line-height: 1.1;
+    margin: 6vw 0;
+}
+
 h2 {
-    text-align: center;
-    font-weight: 700;
-    color: #ffffff;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+    font-size: 5vw; /* Fluid size for secondary headings */
+    letter-spacing: 1.5px;
+    margin-bottom: 3vw;
 }
 
 p {
     text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 3vw auto;
+    font-family: 'Inter', sans-serif;
 }
 
+/* Expanding sections to be fully wide and fluid */
 section {
-    padding: 40px 20px;
-    max-width: 900px;
-    margin: 0 auto;
+    padding: 8vw 5vw; /* Fluid expansive padding */
+    width: 100vw;
+    margin: 0;
 }
 
-/* Project images */
+/* Project images edge-to-edge / massive aesthetic */
 .project-img {
-    max-width: 100%;
+    width: 100%; /* forces images to be extremely wide */
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    margin: 15px auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    margin: 4vw 0;
     display: block;
 }
 
 /* Interactive OBJ area placeholder */
 .obj-placeholder {
     width: 100%;
-    height: 400px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px dashed rgba(255, 255, 255, 0.6);
-    border-radius: 8px;
+    /* Expanding canvas height significantly */
+    height: 70vh;
+    background-color: transparent;
+    border: none;
+    border-radius: 0px; /* Sharp editorial edges */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
-    font-weight: 600;
-    font-size: 1.2rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    margin-top: 3vw;
 }
 
-/* Split Layout for Side-by-Side Content */
+/* Split Layout for Side-by-Side Content taking up full span */
 .split-layout {
     display: flex;
     flex-wrap: wrap; /* Allows wrap for smaller screens */
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    gap: 4vw;
+    width: 100vw;
+    margin: 0;
+    padding: 0 5vw;
 }
 
 .split-column {
-    flex: 1; /* Causes elements to split space equally */
+    flex: 1; /* Causes elements to split space equally while filling width */
     min-width: 300px;
-    margin: 0 !important; /* Resets default section margins */
-    padding: 20px 0;
+    margin: 0 !important;
+    padding: 4vw 0;
 }
 
 footer {
     text-align: center;
-    padding: 30px;
-    margin-top: 40px;
-    font-size: 0.9rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6vw 5vw;
+    margin-top: 6vw;
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100vw;
 }
