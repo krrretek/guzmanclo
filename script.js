@@ -36,9 +36,9 @@ if (container) {
     // 6. Loading the OBJ File
     const objLoader = new OBJLoader();
 
-    // Targeted specifically to the assets folder!
+    // Explicit relative path pointer
     objLoader.load(
-        'assets/alligatorfigure.obj', 
+        './assets/alligatorfigure.obj', 
         (object) => {
             // Automatically center the object
             const box = new THREE.Box3().setFromObject(object);
@@ -65,8 +65,8 @@ if (container) {
         },
         (error) => {
             console.error('An error happened loading the OBJ', error);
-            // Useful error handling feedback
-            container.innerHTML = '<p style="color:white;text-align:center;">Failed to load alligatorfigure.obj. Ensure the exact filename matches and that it was successfully added to your folder.</p>';
+            // Added debug string reporting
+            container.innerHTML = `<p style="color:white;text-align:center;font-size:1.5rem;">Failed to load server asset. Code: ${error.target ? error.target.status : error.message || 'Unknown Network Interruption'}</p>`;
         }
     );
 
