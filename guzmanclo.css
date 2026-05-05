@@ -3,8 +3,8 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    /* Metallic red to rose gold gradient */
-    background: linear-gradient(135deg, #a40000 0%, #b76e79 100%);
+    /* Lighter blood orange fading noticeably to rose gold */
+    background: linear-gradient(135deg, #FF5E0E 0%, #E34234 40%, #B76E79 100%);
     background-attachment: scroll; /* Ensures it is scrollable */
     color: #ffffff;
     font-family: 'Inter', sans-serif;
@@ -39,13 +39,28 @@ header nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Enhancing heading fonts for crispness */
-h1, h2 {
+/* Elegant typography for main title */
+h1 {
     text-align: center;
     font-weight: 700;
     color: #ffffff;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Enhancing secondary headings for larger display */
+h2 {
+    text-align: center;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
 }
 
 p {

@@ -36,9 +36,9 @@ if (container) {
     // 6. Loading the OBJ File
     const objLoader = new OBJLoader();
 
-    // Make sure 'alligatorfigure.obj' exactly matches the file capitalization in your folder!
+    // Targeted specifically to the assets folder!
     objLoader.load(
-        'alligatorfigure.obj', 
+        'assets/alligatorfigure.obj', 
         (object) => {
             // Automatically center the object
             const box = new THREE.Box3().setFromObject(object);
