@@ -38,7 +38,7 @@ if (container) {
 
     // Explicit relative path pointer
     objLoader.load(
-        './assets/alligatorfigure.obj', 
+        './assets/interactive.alligator.obj', 
         (object) => {
             // Automatically center the object
             const box = new THREE.Box3().setFromObject(object);
