@@ -8,8 +8,8 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    /* Lighter blood orange fading noticeably to rose gold */
-    background: linear-gradient(135deg, #FF5E0E 0%, #E34234 40%, #B76E79 100%);
+    /* Rose gold fading to a very light, warm pink */
+    background: linear-gradient(135deg, #B76E79 0%, #FFE4E6 100%);
     background-attachment: scroll; /* Ensures it is wildly scrollable */
     color: #ffffff;
     font-family: 'Inter', sans-serif;
