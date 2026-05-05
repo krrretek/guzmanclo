@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="guzmanclo.css">
 
     <!-- Optional: Link external fonts (e.g., Google Fonts) -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -45,14 +45,6 @@
             <p>This is my work.</p>
         </section>
 
-        <!-- Image input can go alongside your project descriptions here -->
-        <section id="projects">
-            <h2>My Projects</h2>
-            <p>Showcase some of your work here.</p>
-            <!-- Example of an image input -->
-            <img src="firstproject.png" alt="A project image" style="max-width: 100%; height: auto;">
-        </section>
-
         <!-- Moved the 3D model inside the main content area -->
         <section class="model-container">
             <h2>3D Artifact Study</h2>
@@ -69,6 +61,29 @@
                 style="width: 100%; height: 500px; background-color: #f4f4f4; border-radius: 8px;">
             </model-viewer>
         </section>
+
+        <!-- Side-by-side layout: Projects (left) and OBJ (right) -->
+        <div class="split-layout">
+            <!-- Image input can go alongside your project descriptions here -->
+            <section id="projects" class="split-column">
+                <h2>My Projects</h2>
+                <p>Showcase some of your work here.</p>
+                <!-- Example of an image input -->
+                <img src="firstproject.png" alt="A project image" class="project-img">
+                <!-- Added two additional still image files -->
+                <img src="secondproject.png" alt="Second still image" class="project-img">
+                <img src="thirdproject.png" alt="Third still image" class="project-img">
+            </section>
+
+            <!-- Area for an .obj interactive file -->
+            <section id="obj-interactive" class="split-column">
+                <h2>OBJ Interactive Area</h2>
+                <p>Your interactive .obj file rendering will go here.</p>
+                <div class="obj-placeholder">
+                    <p>Upload/embed your .obj 3D interactive viewer here.</p>
+                </div>
+            </section>
+        </div>
 
         <!-- Added the missing contact section so the navbar link works -->
         <section id="contact">

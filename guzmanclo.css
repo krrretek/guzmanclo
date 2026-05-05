@@ -1,0 +1,112 @@
+/* Scrollable metallic red and rose gold background */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    /* Metallic red to rose gold gradient */
+    background: linear-gradient(135deg, #a40000 0%, #b76e79 100%);
+    background-attachment: scroll; /* Ensures it is scrollable */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Header in crisp bold white font */
+header {
+    padding: 20px 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    font-weight: 700; /* Bold */
+    font-size: 1.25rem;
+    text-decoration: none;
+    /* Text shadow to ensure crispness against the vibrant background */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.5px;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Enhancing heading fonts for crispness */
+h1, h2 {
+    text-align: center;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Project images */
+.project-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    margin: 15px auto;
+    display: block;
+}
+
+/* Interactive OBJ area placeholder */
+.obj-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px dashed rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Split Layout for Side-by-Side Content */
+.split-layout {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrap for smaller screens */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.split-column {
+    flex: 1; /* Causes elements to split space equally */
+    min-width: 300px;
+    margin: 0 !important; /* Resets default section margins */
+    padding: 20px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
