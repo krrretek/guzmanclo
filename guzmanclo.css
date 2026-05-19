@@ -78,50 +78,52 @@ h1, h2, h3, header nav ul li a {
     text-transform: uppercase;
 }
 
-/* Refined Hermes Headings with hard ceilings (clamp) */
+/* Refined Hermes Headings with +15% scaling */
 h1 {
-    font-size: clamp(3rem, 8vw, 6rem); 
-    letter-spacing: clamp(4px, 1.2vw, 12px);
+    font-size: clamp(3.5rem, 9.2vw, 7rem); 
+    letter-spacing: clamp(5px, 1.4vw, 14px);
     line-height: 1.1;
     margin: 4vw auto;
 }
 
 h2 {
-    font-size: clamp(2rem, 5vw, 4rem);
-    letter-spacing: clamp(3px, 0.8vw, 8px);
+    font-size: clamp(2.3rem, 5.8vw, 4.6rem);
+    letter-spacing: clamp(4px, 1vw, 10px);
     margin-bottom: 3vw;
 }
 
 h3 {
-    font-size: clamp(1.2rem, 3vw, 2.5rem);
-    letter-spacing: 4px;
+    font-size: clamp(1.4rem, 3.5vw, 3rem);
+    letter-spacing: 6px;
     opacity: 0.9;
     margin-bottom: 2vw;
 }
 
-/* Balanced Massive Body Text Statement */
+/* Unified Body Text Styling (Syncopate @ -10% scale) */
 p, .project-description {
     text-align: center;
-    font-size: clamp(1.25rem, 3.5vw, 3rem); /* Boosted to 3rem cap as requested */
-    line-height: 1.4;
-    max-width: 1200px;
+    font-size: clamp(1.1rem, 3.2vw, 2.7rem); /* Reduced 10% from 3rem */
+    line-height: 1.5;
+    max-width: 1300px;
     margin: 0 auto 3vw auto;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Syncopate', sans-serif; /* Matched to titles */
     font-weight: 400;
+    text-transform: uppercase; /* Matching title style for unification */
+    letter-spacing: 1px;
 }
 
 .project-description {
     margin-top: 1.5vw;
     padding: 0 5vw;
-    color: rgba(255, 255, 255, 0.85);
-    letter-spacing: -0.2px;
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 0.85;
 }
 
 /* Page segments with desktop constraints */
 section {
     padding: 8vw 5vw;
     width: 100%;
-    max-width: 1600px; /* Reins in the width on ultra-wide screens */
+    max-width: 1600px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -131,7 +133,7 @@ section {
 /* Project images with scale caps */
 .project-img {
     width: 100%;
-    max-width: 1200px; /* Prevents images from becoming overwhelming */
+    max-width: 1200px;
     height: auto;
     box-shadow: 0 10px 50px rgba(0,0,0,0.5);
     margin: 4vw 0;
@@ -177,24 +179,25 @@ footer {
     }
 
     h1 {
-        font-size: 10vw;
+        font-size: 12vw;
         letter-spacing: 4px;
         margin: 10vw 0;
     }
 
     h2 {
-        font-size: 6vw;
+        font-size: 7vw;
         letter-spacing: 2px;
     }
 
     h3 {
-        font-size: 4vw;
+        font-size: 5vw;
     }
 
-    /* Scaling massive body text for mobile screens */
+    /* Scaling unified body text for mobile */
     p, .project-description {
-        font-size: 1.5rem; /* Large but readable on mobile */
-        max-width: 90%;
+        font-size: 1.1rem; 
+        max-width: 95%;
+        letter-spacing: 0.5px;
     }
 
     .obj-placeholder, model-viewer {
