@@ -46,35 +46,35 @@ header nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Aggressive Square Typography */
-h1, h2 {
+/* Hermes-style Expanded Typography */
+h1, h2, header nav ul li a {
     text-align: center;
     font-weight: 700;
     color: #ffffff;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Syncopate', sans-serif;
     margin-bottom: 20px;
     width: 100%;
+    text-transform: uppercase;
 }
 
 /* Refined Editorial Headings */
 h1 {
-    font-size: 5vw; /* Reduced from 8vw */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    line-height: 1.1;
+    font-size: 5vw; /* Fluid size relative to viewport width */
+    letter-spacing: 6px;
+    line-height: 1.2;
     margin: 4vw 0;
 }
 
 h2 {
-    font-size: 3vw; /* Reduced from 5vw */
-    letter-spacing: 1px;
+    font-size: 2.5vw; /* Fluid size for secondary headings */
+    letter-spacing: 3px;
     margin-bottom: 2vw;
 }
 
 p, .project-description {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.6;
     max-width: 800px;
     margin: 0 auto 2vw auto;
@@ -83,8 +83,10 @@ p, .project-description {
 
 .project-description {
     margin-top: 1vw;
+    padding: 0 2vw;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.5px;
 }
 
 /* Expanding sections to be fully wide and fluid */
