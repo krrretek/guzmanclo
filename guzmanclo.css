@@ -71,7 +71,8 @@ h1, h2, h3, header nav ul li a {
     text-align: center;
     font-weight: 700;
     color: #ffffff;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    /* Vibrant Mint Green Shadow */
+    text-shadow: 3px 3px 12px rgba(170, 240, 209, 0.8);
     font-family: 'Syncopate', sans-serif;
     margin-bottom: 20px;
     width: 100%;
@@ -99,33 +100,34 @@ h3 {
     margin-bottom: 2vw;
 }
 
+/* Massive Body Text Statement */
 p, .project-description {
     text-align: center;
-    font-size: 1rem;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto 2vw auto;
+    font-size: 3rem; /* 3x larger as requested */
+    line-height: 1.4;
+    max-width: 1200px; /* Wider to accommodate massive text */
+    margin: 0 auto 4vw auto;
     font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
 }
 
 .project-description {
-    margin-top: 1vw;
-    padding: 0 2vw;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.8);
-    letter-spacing: 0.5px;
+    margin-top: 2vw;
+    padding: 0 4vw;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: -0.5px;
 }
 
-/* Expanding sections to be fully wide and fluid */
+/* Page segments sequential padding */
 section {
-    padding: 8vw 5vw; /* Fluid expansive padding */
+    padding: 10vw 5vw;
     width: 100vw;
     margin: 0;
 }
 
 /* Project images edge-to-edge / massive aesthetic */
 .project-img {
-    width: 100%; /* forces images to be extremely wide */
+    width: 100%; 
     height: auto;
     box-shadow: 0 10px 40px rgba(0,0,0,0.4);
     margin: 4vw 0;
@@ -135,7 +137,7 @@ section {
 /* Interactive OBJ area placeholder */
 .obj-placeholder {
     width: 100%;
-    height: 80vh; /* Taller for dedicated spotlight */
+    height: 80vh; 
     background-color: transparent;
     border: none;
     display: flex;
@@ -145,31 +147,55 @@ section {
 }
 
 .model-container {
-    margin-bottom: 8vw;
-}
-
-/* Split Layout for Side-by-Side Content taking up full span */
-.split-layout {
-    display: flex;
-    flex-wrap: wrap; /* Allows wrap for smaller screens */
-    gap: 4vw;
-    width: 100vw;
-    margin: 0;
-    padding: 0 5vw;
-}
-
-.split-column {
-    flex: 1; /* Causes elements to split space equally while filling width */
-    min-width: 300px;
-    margin: 0 !important;
-    padding: 4vw 0;
+    margin-bottom: 12vw;
 }
 
 footer {
     text-align: center;
-    padding: 6vw 5vw;
-    margin-top: 6vw;
-    font-size: 1rem;
+    padding: 8vw 5vw;
+    margin-top: 10vw;
+    font-size: 1.2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     width: 100vw;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+    header nav ul {
+        gap: 20px;
+    }
+    
+    header nav ul li a {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    h1 {
+        font-size: 10vw;
+        letter-spacing: 4px;
+        margin: 10vw 0;
+    }
+
+    h2 {
+        font-size: 6vw;
+        letter-spacing: 2px;
+    }
+
+    h3 {
+        font-size: 4vw;
+    }
+
+    /* Scaling massive body text for mobile screens */
+    p, .project-description {
+        font-size: 1.5rem; /* Large but readable on mobile */
+        max-width: 90%;
+    }
+
+    .obj-placeholder, model-viewer {
+        height: 50vh !important;
+    }
+
+    section {
+        padding: 15vw 5vw;
+    }
 }
