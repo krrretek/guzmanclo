@@ -38,7 +38,7 @@ body::before {
 
 /* Header in crisp bold white font */
 header {
-    padding: 4vw 0;
+    padding: 2vw 0; /* Reduced to lift title higher */
     text-align: center;
     width: 100%;
 }
@@ -83,7 +83,7 @@ h1 {
     font-size: clamp(3.5rem, 9.2vw, 7rem); 
     letter-spacing: clamp(5px, 1.4vw, 14px);
     line-height: 1.1;
-    margin: 4vw auto;
+    margin: 1.5vw auto 4vw auto; /* Reduced top margin to lift closer to header */
 }
 
 h2 {
@@ -170,12 +170,19 @@ footer {
 /* MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
     header nav ul {
-        gap: 20px;
+        display: flex;
+        flex-direction: row; /* Keep links side-by-side */
+        flex-wrap: wrap; /* Allow wrap for space */
+        justify-content: center; /* PERFECT CENTER */
+        padding: 0;
+        margin: 0 auto;
+        gap: 15px; /* Even spacing */
+        width: 100%;
     }
     
     header nav ul li a {
-        font-size: 0.8rem;
-        letter-spacing: 1px;
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
     }
 
     h1 {
