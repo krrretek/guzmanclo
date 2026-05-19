@@ -20,6 +20,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Forces the browser to start at the top on every load -->
+    <script>
+        window.scrollTo(0, 0);
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+    </script>
 
     <!-- Semantic structure starts here -->
     <header>
@@ -105,7 +112,8 @@
         <!-- Added the missing contact section so the navbar link works -->
         <section id="contact">
             <h2>Reach Out</h2>
-            <p>Feel free to contact me here.</p>
+            <p>INSTAGRAM: <a href="https://www.instagram.com/krrretek" target="_blank" style="color: inherit; text-decoration: underline;">@KRRRETEK</a></p>
+            <p>EMAIL: <a href="mailto:clove.guzman@gmail.com" style="color: inherit; text-decoration: underline;">CLOVE.GUZMAN@GMAIL.COM</a></p>
         </section>
 
     </main>
