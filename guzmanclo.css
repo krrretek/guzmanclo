@@ -101,24 +101,24 @@ h3 {
     margin-bottom: 2vw;
 }
 
-/* Unified Body Text Styling (Syncopate @ -10% scale) */
+/* Unified Body Text Styling (Space Grotesk @ -10% scale) */
 p, .project-description {
     text-align: center;
-    font-size: clamp(1.1rem, 3.2vw, 2.7rem); /* Reduced 10% from 3rem */
+    font-size: clamp(1rem, 2.8vw, 2.5rem); 
     line-height: 1.5;
-    max-width: 1300px;
+    max-width: 800px; /* Narrower for better desktop reading */
     margin: 0 auto 3vw auto;
-    font-family: 'Syncopate', sans-serif; /* Matched to titles */
+    font-family: 'Space Grotesk', sans-serif; /* Reverted to allow lowercase */
     font-weight: 400;
-    text-transform: uppercase; /* Matching title style for unification */
-    letter-spacing: 1px;
+    text-transform: none; /* Removed all-caps as requested */
+    letter-spacing: normal;
 }
 
 .project-description {
     margin-top: 1.5vw;
     padding: 0 5vw;
-    color: rgba(255, 255, 255, 0.8);
-    opacity: 0.85;
+    color: rgba(255, 255, 255, 0.85);
+    opacity: 0.9;
 }
 
 /* Page segments with desktop constraints */
@@ -163,57 +163,103 @@ section {
 footer {
     text-align: center;
     padding: 6vw 5vw;
-    margin-top: 10vw;
-    font-size: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 5vw; /* Reduced from 10vw for tighter minimalist feel */
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     width: 100%;
+    opacity: 0.7;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 2vw;
+}
+
+.social-link {
+    color: white;
+    text-decoration: none;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 5px;
+}
+
+.social-link:hover {
+    opacity: 0.7;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.email-link {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    letter-spacing: 2px;
 }
 
 /* MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
+    /* Prevent any horizontal panning */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
     header nav ul {
         display: flex;
-        flex-direction: row; /* Keep links side-by-side */
-        flex-wrap: wrap; /* Allow wrap for space */
-        justify-content: center; /* PERFECT CENTER */
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: center; /* CENTERED */
         padding: 0;
         margin: 0 auto;
-        gap: 15px; /* Even spacing */
+        gap: 12px; 
         width: 100%;
     }
     
     header nav ul li a {
-        font-size: 0.75rem;
-        letter-spacing: 1.5px;
+        font-size: 0.7rem;
+        letter-spacing: 1px;
     }
 
     h1 {
-        font-size: 12vw;
-        letter-spacing: 4px;
-        margin: 10vw 0;
+        font-size: 11vw;
+        letter-spacing: 3px;
+        margin: 12vw 0;
+        width: 100%;
     }
 
     h2 {
-        font-size: 7vw;
+        font-size: 6.5vw;
         letter-spacing: 2px;
     }
 
     h3 {
-        font-size: 5vw;
+        font-size: 4.5vw;
     }
 
     /* Scaling unified body text for mobile */
     p, .project-description {
         font-size: 1.1rem; 
-        max-width: 95%;
-        letter-spacing: 0.5px;
+        max-width: 90%; /* Keep it within the screen */
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .obj-placeholder, model-viewer {
+    .project-img, .obj-placeholder, model-viewer {
+        width: 100% !important;
+        max-width: 100% !important;
         height: 50vh !important;
+        margin: 5vw 0;
     }
 
     section {
-        padding: 15vw 5vw;
+        padding: 15vw 6vw;
+        width: 100%;
+        overflow-x: hidden;
     }
 }
