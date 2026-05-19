@@ -66,29 +66,36 @@ header nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Hermes-style Expanded Typography */
-h1, h2, header nav ul li a {
+/* Hermes-style Aggressive Expanded Typography */
+h1, h2, h3, header nav ul li a {
     text-align: center;
     font-weight: 700;
     color: #ffffff;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
     font-family: 'Syncopate', sans-serif;
     margin-bottom: 20px;
     width: 100%;
     text-transform: uppercase;
 }
 
-/* Refined Editorial Headings */
+/* Refined Hermes Headings */
 h1 {
-    font-size: 5vw; /* Fluid size relative to viewport width */
-    letter-spacing: 6px;
-    line-height: 1.2;
-    margin: 4vw 0;
+    font-size: 4.5vw; 
+    letter-spacing: 12px; /* Aggressively expanded */
+    line-height: 1.1;
+    margin: 5vw 0;
 }
 
 h2 {
-    font-size: 2.5vw; /* Fluid size for secondary headings */
-    letter-spacing: 3px;
+    font-size: 2.2vw;
+    letter-spacing: 8px; /* High-end fashion spacing */
+    margin-bottom: 4vw;
+}
+
+h3 {
+    font-size: 1.5vw;
+    letter-spacing: 5px;
+    opacity: 0.9;
     margin-bottom: 2vw;
 }
 
@@ -128,15 +135,17 @@ section {
 /* Interactive OBJ area placeholder */
 .obj-placeholder {
     width: 100%;
-    /* Expanding canvas height significantly */
-    height: 70vh;
+    height: 80vh; /* Taller for dedicated spotlight */
     background-color: transparent;
     border: none;
-    border-radius: 0px; /* Sharp editorial edges */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 3vw;
+    margin-top: 1vw;
+}
+
+.model-container {
+    margin-bottom: 8vw;
 }
 
 /* Split Layout for Side-by-Side Content taking up full span */

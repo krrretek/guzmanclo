@@ -45,61 +45,62 @@
             <p>Looking to create external visualizations of the feelings that get lost between dreams and reality.</p>
         </section>
 
-        <!-- Moved the 3D model inside the main content area -->
-        <section class="model-container">
-            <h2>3D Artifact Study</h2>
-
-            <!-- Configured for maximum interactivity with auto-rotate, camera-controls, animations, etc -->
-            <model-viewer
-                src="gallerywall.glb"
-                poster="firstproject.png"
-                alt="A 3D model of a creative artifact"
-                shadow-intensity="1"
-                camera-controls
-                touch-action="pan-y"
-                auto-rotate
-                ar
-                autoplay
-                interaction-prompt-style="basic"
-                style="width: 100%; height: 75vh; background-color: transparent;">
-            </model-viewer>
+        <!-- Section 1: PROJECT STILLS (Flat Images) -->
+        <section id="projects">
+            <h2>Project Stills</h2>
+            
+            <img src="assets/firstproject.png" alt="Artifact Study 1" class="project-img">
             <div class="project-description">
-                <p>Interactive 3D study of the primary gallery artifact. Use your mouse or touch to rotate and examine details.</p>
+                <p>Digital visualization exploring the boundary between organic form and artificial texture.</p>
+            </div>
+
+            <img src="assets/guzman.clo.alligator.egg.texture.png" alt="Alligator Texture Map" class="project-img">
+            <div class="project-description">
+                <p>Detailed texture mapping for the interactive alligator study, focusing on reptilian scale patterns.</p>
+            </div>
+
+            <img src="assets/firstproject.png" alt="Artifact Study 2" class="project-img" style="filter: hue-rotate(45deg);">
+            <div class="project-description">
+                <p>Secondary study placeholder. This section features your high-fidelity flat renders and texture maps.</p>
             </div>
         </section>
 
-        <!-- Side-by-side layout: Projects (left) and OBJ (right) -->
-        <div class="split-layout">
-            <!-- Image input can go alongside your project descriptions here -->
-            <section id="projects" class="split-column">
-                <h2>My Projects</h2>
-                <p>Showcase some of your work here.</p>
-                <!-- Corrected path targeting your explicit assets folder -->
-                <img src="assets/firstproject.png" alt="A project image" class="project-img">
-                <div class="project-description">
-                    <p>Enter a description for your first project here. This section highlights the visual feelings between dreams and reality.</p>
-                </div>
-            </section>
+        <!-- Section 2: INTERACTIVE STUDIES (3D Models) -->
+        <section id="interactive">
+            <h2>Interactive Studies</h2>
 
-            <!-- Area for an .obj interactive file -->
-            <section id="obj-interactive" class="split-column">
-                <h2>Surrealistic Interactive </h2>
-                <p>Interact with the 3D alligator mapping below.</p>
+            <!-- GLB Model Viewer -->
+            <div class="model-container">
+                <h3>Gallery Wall .GLB</h3>
+                <model-viewer
+                    src="gallerywall.glb"
+                    poster="firstproject.png"
+                    alt="A 3D model of a creative artifact"
+                    shadow-intensity="1"
+                    camera-controls
+                    touch-action="pan-y"
+                    auto-rotate
+                    ar
+                    autoplay
+                    interaction-prompt-style="basic"
+                    style="width: 100%; height: 75vh; background-color: transparent;">
+                </model-viewer>
+                <div class="project-description">
+                    <p>Immersive 3D gallery wall. Use rotation controls to explore the spatial composition of the piece.</p>
+                </div>
+            </div>
+
+            <!-- OBJ Interactive Area -->
+            <div class="model-container">
+                <h3>Surrealistic Alligator .OBJ</h3>
                 <div id="obj-interactive-viewer" class="obj-placeholder" style="border:none; padding:0; overflow:hidden; background-color: transparent;">
-                    <!-- ThreeJS Canvas will render precisely here from script.js -->
+                    <!-- ThreeJS Canvas -->
                 </div>
                 <div class="project-description">
-                    <p>Interactive alligator model exploration. A deep dive into digital surrealism.</p>
+                    <p>High-resolution interactive alligator model. A surrealist take on digital biology.</p>
                 </div>
-
-                <!-- Expanded section with the Alligator Texture Image -->
-                <h2 style="margin-top: 60px;">Alligator Texture Mapping</h2>
-                <img src="assets/guzman.clo.alligator.egg.texture.png" alt="Alligator Texture Source" class="project-img" style="margin-top: 20px;">
-                <div class="project-description">
-                    <p>Visual map of the alligator texture, detailing the organic patterns used in the 3D model.</p>
-                </div>
-            </section>
-        </div>
+            </div>
+        </section>
 
         <!-- Added the missing contact section so the navbar link works -->
         <section id="contact">
