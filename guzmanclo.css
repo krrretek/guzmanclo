@@ -12,7 +12,7 @@ body {
     background: linear-gradient(135deg, #B76E79 0%, #FFE4E6 100%);
     background-attachment: scroll; /* Ensures it is wildly scrollable */
     color: #ffffff;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     overflow-x: hidden; /* Prevents horizontal scroll on wide elements */
 }
 
@@ -46,39 +46,45 @@ header nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Aggressive Ink Trap Typography */
+/* Aggressive Square Typography */
 h1, h2 {
     text-align: center;
-    font-weight: 800; /* Extra bold enhances the ink trap aesthetic */
+    font-weight: 700;
     color: #ffffff;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-    font-family: 'Bricolage Grotesque', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     margin-bottom: 20px;
     width: 100%;
 }
 
-/* Massive Editorial Headings */
+/* Refined Editorial Headings */
 h1 {
-    font-size: 8vw; /* Fluid size relative to viewport width */
+    font-size: 5vw; /* Reduced from 8vw */
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     line-height: 1.1;
-    margin: 6vw 0;
+    margin: 4vw 0;
 }
 
 h2 {
-    font-size: 5vw; /* Fluid size for secondary headings */
-    letter-spacing: 1.5px;
-    margin-bottom: 3vw;
+    font-size: 3vw; /* Reduced from 5vw */
+    letter-spacing: 1px;
+    margin-bottom: 2vw;
 }
 
-p {
+p, .project-description {
     text-align: center;
-    font-size: 1.25rem;
-    line-height: 1.8;
+    font-size: 1.1rem;
+    line-height: 1.6;
     max-width: 800px;
-    margin: 0 auto 3vw auto;
-    font-family: 'Inter', sans-serif;
+    margin: 0 auto 2vw auto;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.project-description {
+    margin-top: 1vw;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Expanding sections to be fully wide and fluid */

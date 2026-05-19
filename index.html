@@ -16,8 +16,8 @@
     <!-- Link your CSS file here. Assuming your CSS is in a 'styles' folder or next to index.html -->
     <link rel="stylesheet" href="guzmanclo.css">
 
-    <!-- Import Bricolage Grotesque (Inktrap Style) and Inter from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Import Space Grotesk (Square Style) from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -63,6 +63,9 @@
                 interaction-prompt-style="basic"
                 style="width: 100%; height: 75vh; background-color: transparent;">
             </model-viewer>
+            <div class="project-description">
+                <p>Interactive 3D study of the primary gallery artifact. Use your mouse or touch to rotate and examine details.</p>
+            </div>
         </section>
 
         <!-- Side-by-side layout: Projects (left) and OBJ (right) -->
@@ -83,10 +86,17 @@
                 <div id="obj-interactive-viewer" class="obj-placeholder" style="border:none; padding:0; overflow:hidden; background-color: transparent;">
                     <!-- ThreeJS Canvas will render precisely here from script.js -->
                 </div>
+                <div class="project-description">
+                    <p>Interactive alligator model exploration. A deep dive into digital surrealism.</p>
+                </div>
 
                 <!-- Expanded section with the Alligator Texture Image -->
                 <h2 style="margin-top: 60px;">Alligator Texture Mapping</h2>
                 <img src="assets/guzman.clo.alligator.egg.texture.png" alt="Alligator Texture Source" class="project-img" style="margin-top: 20px;">
+                <div class="project-description">
+                    <p>Visual map of the alligator texture, detailing the organic patterns used in the 3D model.</p>
+                </div>
+            </section>
             </section>
         </div>
 
