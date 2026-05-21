@@ -32,6 +32,7 @@ if (container) {
     controls.dampingFactor = 0.05;
     controls.autoRotate = true;
     controls.autoRotateSpeed = 1.5;
+    controls.enableZoom = false; // Prevents scroll trapping over the model
 
     // 6. Loading the OBJ File
     const objLoader = new OBJLoader();

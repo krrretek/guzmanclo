@@ -132,13 +132,14 @@ section {
     align-items: center;
 }
 
-/* Project images with scale caps */
+/* Project images with scale caps and shadow depth */
 .project-img {
     width: 100%;
     max-width: 1200px;
-    height: auto;
-    box-shadow: 0 10px 50px rgba(0,0,0,0.5);
-    margin: 4vw 0;
+    height: auto !important; /* Forces natural aspect ratio */
+    object-fit: contain; /* Prevents squishing */
+    box-shadow: 0 30px 100px rgba(0,0,0,0.8); /* Intensified deep shadow */
+    margin: 6vw 0;
     display: block;
 }
 
@@ -146,18 +147,18 @@ section {
 .obj-placeholder, model-viewer {
     width: 100%;
     max-width: 1200px;
-    height: 75vh; 
+    height: 85vh; /* Slightly taller */
     background-color: transparent;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    margin: 4vw auto; /* Buffer whitespace for scrolling around */
 }
 
 .model-container {
     width: 100%;
-    margin-bottom: 10vw;
+    margin-bottom: 20vw; /* Massive scroll buffer as requested */
 }
 
 footer {
