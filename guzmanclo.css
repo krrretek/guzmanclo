@@ -32,7 +32,7 @@ body::before {
     height: 100vh;
     opacity: 0.15; /* Increased grit for more tactile feel */
     pointer-events: none;
-    z-index: 999;
+    z-index: -1; /* Moved behind page content to prevent overlaying on typography and images */
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
@@ -141,6 +141,7 @@ section {
     box-shadow: 0 30px 100px rgba(0,0,0,0.8); /* Intensified deep shadow */
     margin: 6vw 0;
     display: block;
+    opacity: 1 !important; /* Ensures the images are completely opaque and not translucent */
 }
 
 /* Interactive OBJ area placeholder */
@@ -154,6 +155,7 @@ section {
     align-items: center;
     justify-content: center;
     margin: 4vw auto; /* Buffer whitespace for scrolling around */
+    opacity: 1 !important; /* Ensures interactive files are completely opaque */
 }
 
 .model-container {
@@ -161,13 +163,25 @@ section {
     margin-bottom: 20vw; /* Massive scroll buffer as requested */
 }
 
+#contact {
+    padding-bottom: 2vw; /* Reduced bottom padding */
+}
+
 footer {
     text-align: center;
-    padding: 6vw 5vw;
-    margin-top: 5vw; 
-    font-size: 0.9rem;
+    padding: 2vw 5vw 4vw 5vw; /* Reduced top padding to tighten space below contact buttons */
+    margin-top: 1vw; /* Reduced from 5vw to tighten layout */
     width: 100%;
     opacity: 0.7;
+}
+
+footer p {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.8rem; /* Clean and elegant size for copyright info */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
 .social-links {
