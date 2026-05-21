@@ -82,7 +82,7 @@ h1, h2, h3, header nav ul li a {
 
 /* Refined Hermes Headings with +15% scaling (Second Phase) */
 h1 {
-    font-size: clamp(4rem, 10.5vw, 8rem); 
+    font-size: clamp(4.72rem, 12.39vw, 9.44rem); /* Increased size by 18% */
     letter-spacing: clamp(6px, 1.6vw, 16px);
     line-height: 1.1;
     margin: 1.5vw auto 4vw auto; 
@@ -241,7 +241,7 @@ footer p {
     }
 
     h1 {
-        font-size: 11vw;
+        font-size: 12.98vw; /* Increased size by 18% */
         letter-spacing: 3px;
         margin: 12vw 0;
         width: 100%;
