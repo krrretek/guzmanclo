@@ -163,7 +163,16 @@ section {
     margin-bottom: 20vw; /* Massive scroll buffer as requested */
 }
 
+.model-container:last-of-type {
+    margin-bottom: 0;
+}
+
+#interactive {
+    padding-bottom: 0;
+}
+
 #contact {
+    padding-top: 0;
     padding-bottom: 2vw; /* Reduced bottom padding */
 }
 
