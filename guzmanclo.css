@@ -55,7 +55,7 @@ header nav ul {
 header nav ul li a {
     color: #ffffff;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.65rem;
     text-decoration: none;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -70,10 +70,12 @@ h1, h2, h3, header nav ul li a {
     text-align: center;
     font-weight: 700;
     color: #ffffff;
-    /* Cyberpunk Multi-Layered Shadow: Deep Dark core + Blood Orange/Neon Glow */
+    /* Cyberpunk Multi-Layered Shadow: Deep Dark core + Intense Blood Orange/Neon Glow */
     text-shadow: 
-        2px 2px 15px rgba(0, 0, 0, 0.7), 
-        4px 4px 12px rgba(255, 90, 31, 0.9);
+        2px 2px 15px rgba(0, 0, 0, 0.85), 
+        0 0 12px rgba(255, 90, 31, 1.0),
+        0 0 25px rgba(255, 90, 31, 0.85),
+        0 0 8px rgba(255, 170, 0, 0.6);
     font-family: 'Syncopate', sans-serif;
     margin-bottom: 20px;
     width: 100%;
@@ -138,7 +140,7 @@ section {
     max-width: 1200px;
     height: auto !important; /* Forces natural aspect ratio */
     object-fit: contain; /* Prevents squishing */
-    box-shadow: 0 30px 100px rgba(0,0,0,0.8); /* Intensified deep shadow */
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.85)); /* Alpha silhouette shadow, no flat box shape */
     margin: 6vw 0;
     display: block;
     opacity: 1 !important; /* Ensures the images are completely opaque and not translucent */
@@ -245,7 +247,7 @@ footer p {
     }
     
     header nav ul li a {
-        font-size: 0.7rem;
+        font-size: 0.95rem;
         letter-spacing: 1px;
     }
 

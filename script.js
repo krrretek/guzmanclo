@@ -90,39 +90,42 @@ function runCanvasGlitch() {
             'rgba(19, 2, 2, 0.75)'      
         ];
 
-        // Draw visual blocks on 38% of the frames
-        if (glitchChance < 0.38) {
-            const numGlitches = Math.floor(Math.random() * 8) + 2;
-            for (let i = 0; i < numGlitches; i++) {
+        // Draw smaller, grainier glitches on 48% of the frames
+        if (glitchChance < 0.48) {
+            // Thin horizontal static line grain
+            const numLines = Math.floor(Math.random() * 14) + 6;
+            for (let i = 0; i < numLines; i++) {
                 ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
-                
-                const h = Math.floor(Math.random() * 70) + 10;
+                const h = Math.floor(Math.random() * 3) + 1; // 1px to 3px thick (very grainy)
+                const w = Math.floor(Math.random() * (width * 0.5)) + 40;
+                const x = Math.floor(Math.random() * (width - w));
                 const y = Math.floor(Math.random() * height);
-                const x = Math.floor(Math.random() * 120) - 60;
-                const w = width + 120;
-                
                 ctx.fillRect(x, y, w, h);
-                
-                // Add horizontal static line highlight
-                if (Math.random() > 0.6) {
-                    ctx.fillStyle = '#ffffff';
-                    ctx.fillRect(x + Math.random() * width, y, Math.random() * 140, Math.random() * 3 + 1);
-                }
             }
 
-            // Occasional full-frame dark flash
+            // Scatter individual square grain dust particles
+            const numGrains = Math.floor(Math.random() * 40) + 20;
+            for (let i = 0; i < numGrains; i++) {
+                ctx.fillStyle = Math.random() > 0.25 ? colors[Math.floor(Math.random() * colors.length)] : '#ffffff';
+                const size = Math.floor(Math.random() * 5) + 1.5; // 1.5px to 6.5px grain sizes
+                const x = Math.floor(Math.random() * width);
+                const y = Math.floor(Math.random() * height);
+                ctx.fillRect(x, y, size, size);
+            }
+
+            // Occasional screen-slice offset flicker
             if (Math.random() > 0.8) {
-                ctx.fillStyle = 'rgba(19, 2, 2, 0.08)';
-                ctx.fillRect(0, 0, width, height);
+                ctx.fillStyle = 'rgba(0, 229, 255, 0.08)';
+                ctx.fillRect(0, Math.floor(Math.random() * height), width, Math.floor(Math.random() * 12) + 2);
             }
         }
         
-        // Horizontal CRT scanline overlay
-        if (glitchChance > 0.9) {
-            ctx.strokeStyle = 'rgba(0, 229, 255, 0.12)';
+        // Fine CRT scanline static pattern
+        if (glitchChance > 0.88) {
+            ctx.strokeStyle = 'rgba(0, 229, 255, 0.1)';
             ctx.lineWidth = 1;
-            for (let y = 0; y < height; y += 4) {
-                if (Math.random() > 0.3) {
+            for (let y = 0; y < height; y += 3) {
+                if (Math.random() > 0.4) {
                     ctx.beginPath();
                     ctx.moveTo(0, y);
                     ctx.lineTo(width, y);
@@ -318,6 +321,7 @@ function startPixelTransition(onMidpoint) {
 
     function animate() {
         ctx.clearRect(0, 0, width, height);
+        ctx.globalAlpha = 1.0; // Reset global alpha for the frame
         
         let allFinished = true;
 
@@ -353,6 +357,9 @@ function startPixelTransition(onMidpoint) {
             // Draw block if active
             if (cell.progress > 0) {
                 ctx.fillStyle = cell.color;
+                
+                // Set subtle alpha tracking progress to soften the entry/exit edges
+                ctx.globalAlpha = cell.progress;
                 
                 // Blocks expand from the center of their cell
                 const currentSize = blockSize * cell.progress;
