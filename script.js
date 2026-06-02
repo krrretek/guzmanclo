@@ -27,6 +27,12 @@ interactiveElements.forEach(element => {
 
 // 2. Cyberpunk Load Glitch Effect (Overlay and Text glitch trigger)
 window.addEventListener('DOMContentLoaded', () => {
+    // Force scroll to top on DOMContentLoaded to override browser hash/restore jumps
+    window.scrollTo(0, 0);
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
     // Add glitch-active class to h1 for the CSS glitch keyframes
     const h1 = document.querySelector('h1');
     if (h1) {
@@ -381,5 +387,10 @@ function startGlitchTransition(onMidpoint) {
 
     requestAnimationFrame(animate);
 }
+
+// Force scroll to top on complete load once assets are fully positioned
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+});
 
 
