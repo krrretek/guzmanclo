@@ -25,13 +25,240 @@ interactiveElements.forEach(element => {
     element.addEventListener('pointerup', handleMiddleClick, { capture: true });
 });
 
-// 10. Pixelated Transition for the Home Button
+// 2. Cyberpunk Load Glitch Effect (Overlay and Text glitch trigger)
+window.addEventListener('DOMContentLoaded', () => {
+    // Add glitch-active class to h1 for the CSS glitch keyframes
+    const h1 = document.querySelector('h1');
+    if (h1) {
+        h1.classList.add('glitch-active');
+        setTimeout(() => {
+            h1.classList.remove('glitch-active');
+        }, 1600); // Disable text glitch after 1.6s
+    }
+
+    // Spawn and run the canvas cyberpunk glitch
+    runCanvasGlitch();
+});
+
+function runCanvasGlitch() {
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100vw';
+    canvas.style.height = '100vh';
+    canvas.style.zIndex = '99999999';
+    canvas.style.pointerEvents = 'none'; // Click-through
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    window.addEventListener('resize', () => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+    });
+
+    const duration = 1200; // Glitch overlay lasts for 1.2s
+    const startTime = performance.now();
+
+    function drawGlitch(time) {
+        const elapsed = time - startTime;
+        if (elapsed > duration) {
+            // Clean up and remove the overlay canvas
+            if (canvas.parentNode) {
+                document.body.removeChild(canvas);
+            }
+            return;
+        }
+
+        ctx.clearRect(0, 0, width, height);
+
+        const glitchChance = Math.random();
+        
+        // Cyberpunk neon palettes (cyan, blood orange, neon crimson, dark glitch block, neon yellow)
+        const colors = [
+            'rgba(0, 229, 255, 0.35)', 
+            'rgba(255, 90, 31, 0.4)',  
+            'rgba(217, 56, 30, 0.4)',   
+            'rgba(255, 238, 0, 0.25)',  
+            'rgba(19, 2, 2, 0.75)'      
+        ];
+
+        // Draw visual blocks on 38% of the frames
+        if (glitchChance < 0.38) {
+            const numGlitches = Math.floor(Math.random() * 8) + 2;
+            for (let i = 0; i < numGlitches; i++) {
+                ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+                
+                const h = Math.floor(Math.random() * 70) + 10;
+                const y = Math.floor(Math.random() * height);
+                const x = Math.floor(Math.random() * 120) - 60;
+                const w = width + 120;
+                
+                ctx.fillRect(x, y, w, h);
+                
+                // Add horizontal static line highlight
+                if (Math.random() > 0.6) {
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(x + Math.random() * width, y, Math.random() * 140, Math.random() * 3 + 1);
+                }
+            }
+
+            // Occasional full-frame dark flash
+            if (Math.random() > 0.8) {
+                ctx.fillStyle = 'rgba(19, 2, 2, 0.08)';
+                ctx.fillRect(0, 0, width, height);
+            }
+        }
+        
+        // Horizontal CRT scanline overlay
+        if (glitchChance > 0.9) {
+            ctx.strokeStyle = 'rgba(0, 229, 255, 0.12)';
+            ctx.lineWidth = 1;
+            for (let y = 0; y < height; y += 4) {
+                if (Math.random() > 0.3) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(width, y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        requestAnimationFrame(drawGlitch);
+    }
+
+    requestAnimationFrame(drawGlitch);
+}
+
+// 3. Custom Glowing Cursor Tracking (2x size, pulsing glow)
+const cursorDot = document.getElementById('cursor-dot');
+const cursorGlow = document.getElementById('cursor-glow');
+const cursorGlowInner = document.getElementById('cursor-glow-inner');
+
+if (cursorDot && cursorGlow && cursorGlowInner) {
+    let mouseX = 0;
+    let mouseY = 0;
+    let dotX = 0;
+    let dotY = 0;
+    let glowX = 0;
+    let glowY = 0;
+    let isInitialized = false;
+
+    window.addEventListener('pointermove', (e) => {
+        // Touch devices: do not show custom cursors
+        if (e.pointerType === 'touch') {
+            cursorDot.style.display = 'none';
+            cursorGlow.style.display = 'none';
+            document.body.style.cursor = 'auto';
+            return;
+        }
+
+        // On desktop, hide standard cursor and make custom cursor visible
+        if (!isInitialized) {
+            cursorDot.style.display = 'block';
+            cursorGlow.style.display = 'block';
+            isInitialized = true;
+        }
+
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    window.addEventListener('pointerdown', (e) => {
+        if (e.pointerType !== 'touch') {
+            cursorGlowInner.classList.add('clicking');
+        }
+    });
+
+    window.addEventListener('pointerup', () => {
+        cursorGlowInner.classList.remove('clicking');
+    });
+
+    // Fade cursor out when exiting viewport
+    document.addEventListener('mouseleave', () => {
+        cursorDot.style.opacity = '0';
+        cursorGlow.style.opacity = '0';
+    });
+
+    document.addEventListener('mouseenter', () => {
+        cursorDot.style.opacity = '1';
+        cursorGlow.style.opacity = '1';
+    });
+
+    // Smooth elastic tracking tracking animation loop (lerp)
+    function trackCursor() {
+        // Dot tracks faster (factor 0.3)
+        dotX += (mouseX - dotX) * 0.3;
+        dotY += (mouseY - dotY) * 0.3;
+
+        // Outer glow trails smoothly (factor 0.12) creating a trailing elasticity
+        glowX += (mouseX - glowX) * 0.12;
+        glowY += (mouseY - glowY) * 0.12;
+
+        cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0)`;
+        cursorGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0)`;
+
+        requestAnimationFrame(trackCursor);
+    }
+    requestAnimationFrame(trackCursor);
+
+    // Dynamic Hover States using Event Delegation
+    document.addEventListener('mouseover', (e) => {
+        const target = e.target;
+        if (!target) return;
+        
+        const isHoverable = target.closest('a') || 
+                            target.closest('button') || 
+                            target.closest('model-viewer') || 
+                            target.closest('.social-link') || 
+                            target.closest('[role="button"]');
+                            
+        if (isHoverable) {
+            cursorGlowInner.classList.add('hovered');
+            cursorDot.classList.add('hovered');
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        const target = e.target;
+        if (!target) return;
+
+        const isHoverable = target.closest('a') || 
+                            target.closest('button') || 
+                            target.closest('model-viewer') || 
+                            target.closest('.social-link') || 
+                            target.closest('[role="button"]');
+
+        if (isHoverable) {
+            const relatedTarget = e.relatedTarget;
+            const isLeaving = !relatedTarget || 
+                             (!relatedTarget.closest('a') && 
+                              !relatedTarget.closest('button') && 
+                              !relatedTarget.closest('model-viewer') && 
+                              !relatedTarget.closest('.social-link') && 
+                              !relatedTarget.closest('[role="button"]'));
+            
+            if (isLeaving) {
+                cursorGlowInner.classList.remove('hovered');
+                cursorDot.classList.remove('hovered');
+            }
+        }
+    });
+}
+
+// 4. Pixelated Dither Transition for the Home Button
 const homeLink = document.querySelector('header nav a[href="#home"]') || document.querySelector('header nav ul li a[href="#home"]');
 if (homeLink) {
     homeLink.addEventListener('click', (e) => {
         e.preventDefault();
         startPixelTransition(() => {
-            // Scroll to the top instantly
             window.scrollTo({ top: 0, behavior: 'auto' });
         });
     });
@@ -44,8 +271,8 @@ function startPixelTransition(onMidpoint) {
     canvas.style.left = '0';
     canvas.style.width = '100vw';
     canvas.style.height = '100vh';
-    canvas.style.zIndex = '999999';
-    canvas.style.pointerEvents = 'auto'; // Prevent other clicks during the transition
+    canvas.style.zIndex = '9999999';
+    canvas.style.pointerEvents = 'auto'; // Block clicks during the transition
     document.body.appendChild(canvas);
 
     const ctx = canvas.getContext('2d');
@@ -54,29 +281,40 @@ function startPixelTransition(onMidpoint) {
     canvas.width = width;
     canvas.height = height;
 
-    const blockSize = 40; // Block size for pixelated aesthetic
+    const blockSize = 32; // 32px block size for tighter, higher-density dither pixels
     const cols = Math.ceil(width / blockSize);
     const rows = Math.ceil(height / blockSize);
     
-    // Palette matching the site's iridescent design
-    const colors = ['#B76E79', '#CDB4DB', '#FFC8DD', '#FFAFCC', '#BDE0FE', '#AAF0D1'];
+    // Palette matching the blood orange and cyberpunk look
+    const colors = ['#130202', '#360808', '#8c1c0c', '#d9381e', '#ff5a1f', '#ffaa00', '#00e5ff'];
     
-    // Construct grid cells
+    // 4x4 Bayer Matrix for dither staggered delay thresholding
+    const bayerMatrix = [
+        [0, 8, 2, 10],
+        [12, 4, 14, 6],
+        [3, 11, 1, 9],
+        [15, 7, 13, 5]
+    ];
+
+    // Construct dither grid cells
     const cells = [];
     for (let c = 0; c < cols; c++) {
         for (let r = 0; r < rows; r++) {
+            const ditherVal = bayerMatrix[r % 4][c % 4];
             cells.push({
                 x: c * blockSize,
                 y: r * blockSize,
+                c: c,
+                r: r,
                 color: colors[Math.floor(Math.random() * colors.length)],
                 progress: 0,
-                delay: Math.floor(Math.random() * 25), // Random delay for organic dissolve feel
-                speed: 0.04 + Math.random() * 0.04
+                delay: ditherVal * 3.5, // gradual ordered dither entry
+                speed: 0.015 + Math.random() * 0.01 // slow speed for smooth pixel-by-pixel build up
             });
         }
     }
 
-    let phase = 'in'; // 'in' (building pixels to opaque), 'out' (clearing pixels to transparent)
+    let phase = 'in'; // 'in' (covering viewport), 'out' (uncovering viewport)
 
     function animate() {
         ctx.clearRect(0, 0, width, height);
@@ -99,20 +337,24 @@ function startPixelTransition(onMidpoint) {
                     }
                 }
             } else { // phase === 'out'
-                cell.progress -= cell.speed;
-                if (cell.progress <= 0) {
-                    cell.progress = 0;
-                } else {
+                if (cell.delay > 0) {
+                    cell.delay--;
                     allFinished = false;
+                } else {
+                    cell.progress -= cell.speed;
+                    if (cell.progress <= 0) {
+                        cell.progress = 0;
+                    } else {
+                        allFinished = false;
+                    }
                 }
             }
 
-            // Draw pixel block if visible
+            // Draw block if active
             if (cell.progress > 0) {
                 ctx.fillStyle = cell.color;
-                ctx.globalAlpha = cell.progress;
                 
-                // Animate block size and alpha centered in each grid cell
+                // Blocks expand from the center of their cell
                 const currentSize = blockSize * cell.progress;
                 const offset = (blockSize - currentSize) / 2;
                 
@@ -125,22 +367,22 @@ function startPixelTransition(onMidpoint) {
             }
         }
 
-        ctx.globalAlpha = 1.0; // Reset canvas global opacity
-
         if (allFinished) {
             if (phase === 'in') {
-                // Screen is fully pixelated and opaque
+                // Centered midpoint trigger (when screen is 100% pixel-covered)
                 onMidpoint();
                 phase = 'out';
                 
-                // Shuffle outgoing speeds to keep the exit transition dynamic
-                cells.forEach(c => {
-                    c.speed = 0.05 + Math.random() * 0.05;
+                // Set inverted dither delay values for checkboard dissolve fade out
+                cells.forEach(cell => {
+                    const ditherVal = bayerMatrix[cell.r % 4][cell.c % 4];
+                    cell.delay = (15 - ditherVal) * 3; // dithered exit sequence
+                    cell.speed = 0.015 + Math.random() * 0.01;
                 });
                 
                 requestAnimationFrame(animate);
             } else {
-                // Transition complete, clean up canvas
+                // Completed, clean up transition canvas
                 document.body.removeChild(canvas);
             }
         } else {

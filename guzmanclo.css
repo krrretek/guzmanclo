@@ -8,13 +8,13 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    /* Iridescent multi-stop gradient */
+    /* Cyberpunk blood orange multi-stop gradient */
     background: linear-gradient(135deg, 
-        #B76E79 0%, 
-        #CDB4DB 25%, 
-        #FFC8DD 50%, 
-        #FFAFCC 75%, 
-        #BDE0FE 100%
+        #130202 0%, 
+        #360808 30%, 
+        #8c1c0c 60%, 
+        #d9381e 85%, 
+        #ff5a1f 100%
     );
     background-attachment: fixed;
     color: #ffffff;
@@ -70,10 +70,10 @@ h1, h2, h3, header nav ul li a {
     text-align: center;
     font-weight: 700;
     color: #ffffff;
-    /* High-Contrast Multi-Layered Shadow: Deep Dark core + Mint Glow */
+    /* Cyberpunk Multi-Layered Shadow: Deep Dark core + Blood Orange/Neon Glow */
     text-shadow: 
         2px 2px 15px rgba(0, 0, 0, 0.7), 
-        4px 4px 12px rgba(170, 240, 209, 0.9);
+        4px 4px 12px rgba(255, 90, 31, 0.9);
     font-family: 'Syncopate', sans-serif;
     margin-bottom: 20px;
     width: 100%;
@@ -275,5 +275,160 @@ footer p {
         padding: 15vw 6vw;
         width: 100%;
         overflow-x: hidden;
+    }
+}
+
+/* Custom Glowing Cyberpunk Cursor */
+.custom-cursor-glow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999999;
+    will-change: transform;
+    display: none; /* Initially hidden, JS will show if mouse is used */
+}
+
+.custom-cursor-glow-inner {
+    width: 64px; /* 2x bigger cursor glow container */
+    height: 64px;
+    border: 2px solid rgba(255, 90, 31, 0.6);
+    border-radius: 50%;
+    margin-top: -32px;
+    margin-left: -32px;
+    background-color: rgba(255, 90, 31, 0.03);
+    /* Pulsing blood orange and yellow glow */
+    box-shadow: 
+        0 0 15px rgba(217, 56, 30, 0.5), 
+        inset 0 0 10px rgba(255, 90, 31, 0.3);
+    animation: cursorPulse 2s infinite ease-in-out;
+    transition: 
+        width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+        height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+        margin 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+        border-color 0.3s ease, 
+        box-shadow 0.3s ease;
+}
+
+.custom-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    margin-top: -4px;
+    margin-left: -4px;
+    pointer-events: none;
+    z-index: 10000000;
+    will-change: transform;
+    display: none; /* JS controlled */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+
+/* Pulsing keyframe animation for the outer glow */
+@keyframes cursorPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 
+            0 0 15px rgba(217, 56, 30, 0.5), 
+            inset 0 0 10px rgba(255, 90, 31, 0.3);
+        border-color: rgba(255, 90, 31, 0.6);
+    }
+    50% {
+        transform: scale(1.15);
+        box-shadow: 
+            0 0 25px rgba(255, 90, 31, 0.8), 
+            0 0 10px rgba(255, 170, 0, 0.5),
+            inset 0 0 15px rgba(217, 56, 30, 0.4);
+        border-color: rgba(255, 170, 0, 0.8);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 
+            0 0 15px rgba(217, 56, 30, 0.5), 
+            inset 0 0 10px rgba(255, 90, 31, 0.3);
+        border-color: rgba(255, 90, 31, 0.6);
+    }
+}
+
+/* Clicking and Hovering states for cursor */
+.custom-cursor-glow-inner.clicking {
+    transform: scale(0.85);
+    border-color: #ffaa00;
+    box-shadow: 
+        0 0 30px rgba(255, 170, 0, 0.9), 
+        inset 0 0 15px rgba(255, 90, 31, 0.6);
+}
+
+.custom-cursor-glow-inner.hovered {
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left: -40px;
+    border-color: #ffaa00;
+    box-shadow: 
+        0 0 35px rgba(255, 90, 31, 1), 
+        inset 0 0 20px rgba(255, 170, 0, 0.6);
+}
+
+.custom-cursor-dot.hovered {
+    background-color: #ffaa00;
+    transform: scale(1.5);
+}
+
+/* Hide default cursor on desktop */
+@media (min-width: 769px) {
+    html, body, a, button, select, input, textarea, [role="button"], model-viewer {
+        cursor: none !important;
+    }
+}
+
+/* Cyberpunk Glitch Animation for h1 Title on Load */
+h1.glitch-active {
+    animation: titleGlitch 1.5s ease-out;
+}
+
+@keyframes titleGlitch {
+    0% {
+        transform: skewX(0deg) scale(1);
+        text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7), 4px 4px 12px rgba(255, 90, 31, 0.9);
+    }
+    5% {
+        transform: skewX(-5deg) scaleY(0.9);
+        text-shadow: -3px 0 0 #00fff9, 3px 0 0 #ff0055;
+    }
+    10% {
+        transform: skewX(5deg) scaleY(1.1);
+        text-shadow: 3px -2px 0 #00fff9, -3px 2px 0 #ff0055;
+    }
+    15% {
+        transform: skewX(0deg) scale(1);
+        text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7), 4px 4px 12px rgba(255, 90, 31, 0.9);
+    }
+    50% {
+        transform: skewX(0deg);
+        text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7), 4px 4px 12px rgba(255, 90, 31, 0.9);
+    }
+    52% {
+        transform: skewX(-15deg) scale(1.05);
+        text-shadow: -4px 3px 0 #00fff9, 4px -3px 0 #ff0055;
+        opacity: 0.8;
+    }
+    54% {
+        transform: skewX(10deg) scale(0.95);
+        text-shadow: 4px -3px 0 #00fff9, -4px 3px 0 #ff0055;
+        opacity: 0.9;
+    }
+    56% {
+        transform: skewX(0deg) scale(1);
+        text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7), 4px 4px 12px rgba(255, 90, 31, 0.9);
+        opacity: 1;
+    }
+    100% {
+        transform: skewX(0deg) scale(1);
+        text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7), 4px 4px 12px rgba(255, 90, 31, 0.9);
     }
 }
