@@ -1,147 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Metadata about the document -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>krrretek - portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>krrretek - portfolio</title>
 
-    <!-- SEO & Sharing Metadata -->
-    <meta name="description" content="A brief description of my page for search engines.">
-    <meta name="author" content="Your Name">
+<meta name="description" content="A brief description of my page for search engines.">
+<meta name="author" content="Your Name">
 
-    <!-- REQUIRED: This script makes the 3D <model-viewer> tag work -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 
-    <!-- Link your CSS file here. Assuming your CSS is in a 'styles' folder or next to index.html -->
-    <link rel="stylesheet" href="guzmanclo.css?v=1.0.2">
+<link rel="stylesheet" href="guzmanclo.css?v=1.0.6">
 
-    <!-- Import Syncopate (Headers) and Space Grotesk (Body) from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Forces the browser to start at the top on every load -->
-    <script>
-        window.scrollTo(0, 0);
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
-    </script>
+<script>
+if ('scrollRestoration' in history) {
+history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+</script>
 
-    <!-- Semantic structure starts here -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Reach out</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Reach out</a></li>
+</ul>
+</nav>
+</header>
 
-    <main>
-        <!-- The main content of your webpage goes here -->
-        <section id="home">
-            <h1 data-text="KRRRETEK">KRRRETEK</h1>
-        </section>
+<main>
 
-        <section id="about">
-            <h2>About</h2>
-            <p>Visualizations of sensation information often lost between dreams and reality.</p>
-        </section>
+<!-- HOME -->
+<section id="home">
+<h1 data-text="KRRRETEK">KRRRETEK</h1>
+</section>
 
-        <!-- Section 1: PROJECT STILLS (Flat Images) -->
-        <section id="projects">
-            <h2>Project Stills</h2>
+<!-- ABOUT -->
+<section id="about">
+<h2>About</h2>
+<p>Visualizations of sensation information often lost between dreams and reality.</p>
+</section>
 
-            <img src="assets/firstproject.png" alt="Artifact Study 1" class="project-img">
-            <div class="project-description">
-                <p>Navigating the boundary between organic form and artificial texture.</p>
-            </div>
+<!-- PROJECT STILLS -->
+<section id="projects">
+<h2>Project Stills</h2>
 
-            <img src="assets/guzman.clo.alligator.egg.texture.png" alt="Alligator Texture Map" class="project-img">
-            <div class="project-description">
-                <p>Detailed texture mapping for the interactive alligator study, focusing on reptilian scale patterns.</p>
-            </div>
+<h3>I.</h3>
+<img src="assets/firstproject.png" alt="I" class="project-img">
 
-        </section>
+<h3>II.</h3>
+<img src="assets/newestgallerywallrender.png" alt="II" class="project-img">
 
-        <!-- Section 2: INTERACTIVE STUDIES (3D Models) -->
-        <section id="interactive">
-            <h2>Interactive Studies</h2>
+<h3>III.</h3>
+<img src="assets/guzman.clo.alligator.egg.texture.png" alt="III" class="project-img">
 
-            <!-- GLB Model Viewer -->
-            <div class="model-container">
-                <h3>Gallery Wall .GLB</h3>
-                <model-viewer
-                    src="assets/gallerywall.glb"
-                    poster="assets/firstproject.png"
-                    alt="A 3D model of a creative artifact"
-                    shadow-intensity="1"
-                    camera-controls
-                    disable-zoom
-                    touch-action="pan-y"
-                    auto-rotate
-                    ar
-                    autoplay
-                    interaction-prompt-style="basic"
-                    style="width: 100%; height: 75vh; background-color: transparent;">
-                </model-viewer>
-                <div class="project-description">
-                    <p>Immersive 3D gallery wall. Use rotation controls to explore the spatial composition of the piece.</p>
-                </div>
-            </div>
+<h3>IV.</h3>
+<img src="assets/scarylabubu.png" alt="IV" class="project-img">
 
-            <!-- GLB Alligator Viewer -->
-            <div class="model-container">
-                <h3>Machine-washed Alligator</h3>
-                <model-viewer
-                    src="assets/interactive.alligator.github.glb"
-                    poster="assets/guzman.clo.alligator.egg.texture.png"
-                    alt="A 3D model of a surrealistic alligator"
-                    shadow-intensity="1"
-                    camera-controls
-                    disable-zoom
-                    touch-action="pan-y"
-                    auto-rotate
-                    ar
-                    autoplay
-                    interaction-prompt-style="basic"
-                    style="width: 100%; height: 75vh; background-color: transparent;">
-                </model-viewer>
-                <div class="project-description">
-                    <p>High-res interactive alligator model. A surrealist take on digital biology.</p>
-                </div>
-            </div>
-        </section>
+</section>
 
-        <!-- Added the missing contact section so the navbar link works -->
-        <section id="contact">
-            <h2>Reach Out</h2>
-            <div class="social-links">
-                <a href="https://www.instagram.com/krrretek" target="_blank" class="social-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                    KRRRETEK
-                </a>
-                <a href="mailto:clove.guzman@gmail.com" class="social-link email-link">
-                    CLOVE.GUZMAN@GMAIL.COM
-                </a>
-        </section>
+<!-- INTERACTIVE STUDIES -->
+<section id="interactive">
+<h2>Interactive Studies</h2>
 
-    </main>
+<!-- Esoteric Poster Blend -->
+<div class="model-container">
+<h3>Esoteric Poster Blend</h3>
+<model-viewer
+src="assets/gallerywall.glb"
+poster="assets/newestgallerywallrender.png"
+alt="Esoteric Poster Blend 3D Gallery Wall"
+shadow-intensity="1"
+camera-controls
+disable-zoom
+touch-action="pan-y"
+auto-rotate
+ar
+autoplay
+interaction-prompt-style="basic"
+style="width: 100%; height: 75vh; background-color: transparent;">
+</model-viewer>
+</div>
 
-    <footer>
-        <p>&copy; 2026 KRRRETEK. ALL RIGHTS RESERVED.</p>
-    </footer>
+<!-- Isolated Labubu -->
+<div class="model-container">
+<h3>Isolated Labubu</h3>
+<model-viewer
+src="assets/isolated.labubu.glb"
+alt="Isolated Labubu 3D model"
+shadow-intensity="1"
+camera-controls
+disable-zoom
+touch-action="pan-y"
+auto-rotate
+ar
+autoplay
+interaction-prompt-style="basic"
+style="width: 100%; height: 75vh; background-color: transparent;">
+</model-viewer>
+</div>
 
-    <!-- Custom Cursor Elements -->
-    <div class="custom-cursor-dot" id="cursor-dot"></div>
-    <div class="custom-cursor-glow-container" id="cursor-glow">
-        <div class="custom-cursor-glow-inner" id="cursor-glow-inner"></div>
-    </div>
+<!-- Machine-washed Alligator -->
+<div class="model-container">
+<h3>Machine-washed Alligator</h3>
+<model-viewer
+src="assets/interactive.alligator.github.glb"
+alt="A 3D model of a surrealistic alligator"
+shadow-intensity="1"
+camera-controls
+disable-zoom
+touch-action="pan-y"
+auto-rotate
+ar
+autoplay
+interaction-prompt-style="basic"
+style="width: 100%; height: 75vh; background-color: transparent;">
+</model-viewer>
+</div>
 
-    <!-- Link your JavaScript file here, at the end of the body so it loads after the HTML -->
-    <script type="module" src="script.js?v=1.0.2"></script>
+<!-- Familiarity Video -->
+<div class="model-container">
+<h3>Familiarity - Adobe Premiere Video Sequence</h3>
+<video
+src="assets/Guzman.Clove.Final.Video.mp4"
+controls
+playsinline
+style="width: 100%; max-width: 1200px; height: auto; display: block; margin: 0 auto;">
+</video>
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Reach Out</h2>
+<div class="social-links">
+<a href="https://www.instagram.com/krrretek" target="_blank" class="social-link">
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+KRRRETEK
+</a>
+<a href="mailto:clove.guzman@gmail.com" class="social-link email-link">
+CLOVE.GUZMAN@GMAIL.COM
+</a>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>&copy; 2026 KRRRETEK. ALL RIGHTS RESERVED.</p>
+</footer>
+
+<div class="custom-cursor-dot" id="cursor-dot"></div>
+<div class="custom-cursor-glow-container" id="cursor-glow">
+<div class="custom-cursor-glow-inner" id="cursor-glow-inner"></div>
+</div>
+
+<script type="module" src="script.js?v=1.0.6"></script>
 </body>
 </html>
