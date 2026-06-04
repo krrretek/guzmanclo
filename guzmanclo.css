@@ -9,11 +9,11 @@ body {
     padding: 0;
     min-height: 100vh;
     /* Cyberpunk blood orange multi-stop gradient */
-    background: linear-gradient(135deg, 
-        #130202 0%, 
-        #360808 30%, 
-        #8c1c0c 60%, 
-        #d9381e 85%, 
+    background: linear-gradient(135deg,
+        #130202 0%,
+        #360808 30%,
+        #8c1c0c 60%,
+        #d9381e 85%,
         #ff5a1f 100%
     );
     background-attachment: fixed;
@@ -82,8 +82,8 @@ h1, h2, h3, header nav ul li a {
     font-weight: 700;
     color: #ffffff;
     /* Cyberpunk Multi-Layered Shadow: Deep Dark core + Intense Blood Orange/Neon Glow */
-    text-shadow: 
-        2px 2px 15px rgba(0, 0, 0, 0.85), 
+    text-shadow:
+        2px 2px 15px rgba(0, 0, 0, 0.85),
         0 0 12px rgba(255, 90, 31, 1.0),
         0 0 25px rgba(255, 90, 31, 0.85),
         0 0 8px rgba(255, 170, 0, 0.6);
@@ -94,12 +94,16 @@ h1, h2, h3, header nav ul li a {
 }
 
 h1 {
-    font-size: clamp(5.3rem, 14vw, 10.5rem); /* Slightly larger */
-    letter-spacing: clamp(6px, 1.6vw, 16px);
-    line-height: 1.1;
-    margin: 0 auto; 
-    animation: h1GlowPulse 4s infinite ease-in-out;
+font-size: clamp(5.3rem, 14vw, 10.5rem);
+letter-spacing: clamp(6px, 1.6vw, 16px);
+line-height: 1.1;
+margin: 0 auto;
+text-align: center;
+width: 100%;
+display: block;
+animation: h1GlowPulse 4s infinite ease-in-out;
 }
+
 
 h2 {
     font-size: clamp(2.6rem, 6.7vw, 5.3rem);
@@ -117,7 +121,7 @@ h3 {
 /* Unified Body Text Styling (Space Grotesk @ -10% scale) */
 p, .project-description {
     text-align: center;
-    font-size: clamp(1rem, 2.8vw, 2.5rem); 
+    font-size: clamp(1rem, 2.8vw, 2.5rem);
     line-height: 1.5;
     max-width: 800px; /* Narrower for better desktop reading */
     margin: 0 auto 3vw auto;
@@ -248,15 +252,15 @@ footer p {
 
     header nav ul {
         display: flex;
-        flex-direction: row; 
+        flex-direction: row;
         flex-wrap: wrap;
         justify-content: center; /* CENTERED */
         padding: 0;
         margin: 0 auto;
-        gap: 12px; 
+        gap: 12px;
         width: 100%;
     }
-    
+
     header nav ul li a {
         font-size: 0.95rem;
         letter-spacing: 1px;
@@ -280,7 +284,7 @@ footer p {
 
     /* Scaling unified body text for mobile */
     p, .project-description {
-        font-size: 1.1rem; 
+        font-size: 1.1rem;
         max-width: 90%; /* Keep it within the screen */
         margin-left: auto;
         margin-right: auto;
@@ -320,15 +324,15 @@ footer p {
     margin-left: -32px;
     background-color: rgba(255, 90, 31, 0.03);
     /* Pulsing blood orange and yellow glow */
-    box-shadow: 
-        0 0 15px rgba(217, 56, 30, 0.5), 
+    box-shadow:
+        0 0 15px rgba(217, 56, 30, 0.5),
         inset 0 0 10px rgba(255, 90, 31, 0.3);
     animation: cursorPulse 2s infinite ease-in-out;
-    transition: 
-        width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-        height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-        margin 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-        border-color 0.3s ease, 
+    transition:
+        width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        margin 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.3s ease,
         box-shadow 0.3s ease;
 }
 
@@ -354,23 +358,23 @@ footer p {
 @keyframes cursorPulse {
     0% {
         transform: scale(1);
-        box-shadow: 
-            0 0 15px rgba(217, 56, 30, 0.5), 
+        box-shadow:
+            0 0 15px rgba(217, 56, 30, 0.5),
             inset 0 0 10px rgba(255, 90, 31, 0.3);
         border-color: rgba(255, 90, 31, 0.6);
     }
     50% {
         transform: scale(1.15);
-        box-shadow: 
-            0 0 25px rgba(255, 90, 31, 0.8), 
+        box-shadow:
+            0 0 25px rgba(255, 90, 31, 0.8),
             0 0 10px rgba(255, 170, 0, 0.5),
             inset 0 0 15px rgba(217, 56, 30, 0.4);
         border-color: rgba(255, 170, 0, 0.8);
     }
     100% {
         transform: scale(1);
-        box-shadow: 
-            0 0 15px rgba(217, 56, 30, 0.5), 
+        box-shadow:
+            0 0 15px rgba(217, 56, 30, 0.5),
             inset 0 0 10px rgba(255, 90, 31, 0.3);
         border-color: rgba(255, 90, 31, 0.6);
     }
@@ -380,8 +384,8 @@ footer p {
 .custom-cursor-glow-inner.clicking {
     transform: scale(0.85);
     border-color: #ffaa00;
-    box-shadow: 
-        0 0 30px rgba(255, 170, 0, 0.9), 
+    box-shadow:
+        0 0 30px rgba(255, 170, 0, 0.9),
         inset 0 0 15px rgba(255, 90, 31, 0.6);
 }
 
@@ -391,8 +395,8 @@ footer p {
     margin-top: -40px;
     margin-left: -40px;
     border-color: #ffaa00;
-    box-shadow: 
-        0 0 35px rgba(255, 90, 31, 1), 
+    box-shadow:
+        0 0 35px rgba(255, 90, 31, 1),
         inset 0 0 20px rgba(255, 170, 0, 0.6);
 }
 
@@ -468,25 +472,28 @@ h1.glitch-active {
 }
 
 @keyframes h1GlowPulse {
-    0% {
-        text-shadow: 
-            2px 2px 15px rgba(0, 0, 0, 0.85), 
-            0 0 12px rgba(255, 90, 31, 0.9),
-            0 0 25px rgba(255, 90, 31, 0.7),
-            0 0 8px rgba(255, 170, 0, 0.5);
-    }
-    50% {
-        text-shadow: 
-            2px 2px 20px rgba(0, 0, 0, 0.9), 
-            0 0 20px rgba(255, 90, 31, 1.0),
-            0 0 40px rgba(255, 90, 31, 0.9),
-            0 0 15px rgba(255, 170, 0, 0.8);
-    }
-    100% {
-        text-shadow: 
-            2px 2px 15px rgba(0, 0, 0, 0.85), 
-            0 0 12px rgba(255, 90, 31, 0.9),
-            0 0 25px rgba(255, 90, 31, 0.7),
-            0 0 8px rgba(255, 170, 0, 0.5);
-    }
+0% {
+text-shadow:
+2px 2px 15px rgba(0, 0, 0, 0.85),
+0 0 20px rgba(255, 90, 31, 1.0),
+0 0 45px rgba(255, 90, 31, 0.95),
+0 0 70px rgba(255, 90, 31, 0.6),
+0 0 15px rgba(255, 170, 0, 0.8);
+}
+50% {
+text-shadow:
+2px 2px 20px rgba(0, 0, 0, 0.9),
+0 0 35px rgba(255, 90, 31, 1.0),
+0 0 70px rgba(255, 90, 31, 1.0),
+0 0 100px rgba(255, 90, 31, 0.8),
+0 0 25px rgba(255, 170, 0, 1.0);
+}
+100% {
+text-shadow:
+2px 2px 15px rgba(0, 0, 0, 0.85),
+0 0 20px rgba(255, 90, 31, 1.0),
+0 0 45px rgba(255, 90, 31, 0.95),
+0 0 70px rgba(255, 90, 31, 0.6),
+0 0 15px rgba(255, 170, 0, 0.8);
+}
 }

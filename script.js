@@ -86,14 +86,14 @@ function runCanvasGlitch() {
         ctx.clearRect(0, 0, width, height);
 
         const glitchChance = Math.random();
-        
+
         // Cyberpunk neon palettes (cyan, blood orange, neon crimson, dark glitch block, neon yellow)
         const colors = [
-            'rgba(0, 229, 255, 0.35)', 
-            'rgba(255, 90, 31, 0.4)',  
-            'rgba(217, 56, 30, 0.4)',   
-            'rgba(255, 238, 0, 0.25)',  
-            'rgba(19, 2, 2, 0.75)'      
+            'rgba(0, 229, 255, 0.35)',
+            'rgba(255, 90, 31, 0.4)',
+            'rgba(217, 56, 30, 0.4)',
+            'rgba(255, 238, 0, 0.25)',
+            'rgba(19, 2, 2, 0.75)'
         ];
 
         // Draw smaller, grainier glitches on 48% of the frames
@@ -125,7 +125,7 @@ function runCanvasGlitch() {
                 ctx.fillRect(0, Math.floor(Math.random() * height), width, Math.floor(Math.random() * 12) + 2);
             }
         }
-        
+
         // Fine CRT scanline static pattern
         if (glitchChance > 0.88) {
             ctx.strokeStyle = 'rgba(0, 229, 255, 0.1)';
@@ -222,13 +222,13 @@ if (cursorDot && cursorGlow && cursorGlowInner) {
     document.addEventListener('mouseover', (e) => {
         const target = e.target;
         if (!target) return;
-        
-        const isHoverable = target.closest('a') || 
-                            target.closest('button') || 
-                            target.closest('model-viewer') || 
-                            target.closest('.social-link') || 
+
+        const isHoverable = target.closest('a') ||
+                            target.closest('button') ||
+                            target.closest('model-viewer') ||
+                            target.closest('.social-link') ||
                             target.closest('[role="button"]');
-                            
+
         if (isHoverable) {
             cursorGlowInner.classList.add('hovered');
             cursorDot.classList.add('hovered');
@@ -239,21 +239,21 @@ if (cursorDot && cursorGlow && cursorGlowInner) {
         const target = e.target;
         if (!target) return;
 
-        const isHoverable = target.closest('a') || 
-                            target.closest('button') || 
-                            target.closest('model-viewer') || 
-                            target.closest('.social-link') || 
+        const isHoverable = target.closest('a') ||
+                            target.closest('button') ||
+                            target.closest('model-viewer') ||
+                            target.closest('.social-link') ||
                             target.closest('[role="button"]');
 
         if (isHoverable) {
             const relatedTarget = e.relatedTarget;
-            const isLeaving = !relatedTarget || 
-                             (!relatedTarget.closest('a') && 
-                              !relatedTarget.closest('button') && 
-                              !relatedTarget.closest('model-viewer') && 
-                              !relatedTarget.closest('.social-link') && 
+            const isLeaving = !relatedTarget ||
+                             (!relatedTarget.closest('a') &&
+                              !relatedTarget.closest('button') &&
+                              !relatedTarget.closest('model-viewer') &&
+                              !relatedTarget.closest('.social-link') &&
                               !relatedTarget.closest('[role="button"]'));
-            
+
             if (isLeaving) {
                 cursorGlowInner.classList.remove('hovered');
                 cursorDot.classList.remove('hovered');
@@ -296,13 +296,13 @@ function startGlitchTransition(onMidpoint) {
 
     // Cyberpunk transition color palette
     const colors = [
-        '#00e5ff', // neon cyan
-        '#ff5a1f', // orange
-        '#d9381e', // blood orange
-        '#ffaa00', // gold
-        '#130202', // dark blood/background
-        '#ffffff'  // white static
-    ];
+  'rgba(0, 229, 255, 0.3)',
+  'rgba(255, 90, 31, 0.3)',
+  'rgba(217, 56, 30, 0.3)',
+  'rgba(255, 170, 0, 0.2)',
+  'rgba(19, 2, 2, 0.5)',
+  'rgba(255, 255, 255, 0.4)'
+  ];
 
     function animate(time) {
         const elapsed = time - startTime;
@@ -331,17 +331,17 @@ function startGlitchTransition(onMidpoint) {
 
         // Glitch line counts scale up with progress
         const numGlitches = Math.floor(progress * 18) + 4;
-        
+
         // Draw solid colored horizontal slices (choppy, uneven offsets)
         for (let i = 0; i < numGlitches; i++) {
             ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
-            
+
             // Random block heights that get taller and choppier as we approach midpoint
             const h = Math.floor(Math.random() * (progress * 120)) + 6;
             const y = Math.floor(Math.random() * height);
             const w = Math.floor(Math.random() * width) + (width * 0.5);
             const x = Math.floor(Math.random() * (width - w));
-            
+
             ctx.fillRect(x, y, w, h);
         }
 
@@ -362,7 +362,7 @@ function startGlitchTransition(onMidpoint) {
             const y = Math.floor(Math.random() * height);
             const h = Math.floor(Math.random() * 40) + 10;
             ctx.fillRect(0, y, width, h);
-            
+
             // Draw cyan and orange offset edges for chromatic aberration simulator
             ctx.fillStyle = '#00e5ff';
             ctx.fillRect(0, y, width, 2);
@@ -374,12 +374,7 @@ function startGlitchTransition(onMidpoint) {
         if (progress > 0.85) {
             ctx.fillStyle = Math.random() > 0.5 ? '#130202' : '#ff5a1f';
             ctx.fillRect(0, 0, width, height);
-            
-            // Draw big digital static symbol
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 36px monospace';
-            ctx.textAlign = 'center';
-            ctx.fillText('CRITICAL_REBOOT_INIT', width / 2, height / 2);
+
         }
 
         requestAnimationFrame(animate);
@@ -392,5 +387,3 @@ function startGlitchTransition(onMidpoint) {
 window.addEventListener('load', () => {
     window.scrollTo(0, 0);
 });
-
-
